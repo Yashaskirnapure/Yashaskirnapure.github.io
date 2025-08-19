@@ -1,1 +1,1 @@
-Hi, I’m Yashas — a Computer Science graduate and software engineer. This space is for notes and write-ups from my learning journey — documenting concepts, projects, and things I figure out along the way.
+Hi, I’m Yashas, a Computer Science graduate and software engineer. This space is for notes and write-ups from my learning journey, documenting concepts, projects, and things I figure out along the way.
