@@ -1,5 +1,1 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+Hi, I’m Yashas — a Computer Science graduate and software engineer. This space is for notes and write-ups from my learning journey — documenting concepts, projects, and things I figure out along the way.
