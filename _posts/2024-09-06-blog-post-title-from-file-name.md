@@ -6,7 +6,7 @@ In mathematics, a set is a homogeneous structure that stores distinct values in 
 
 ### Finding unique values
 
-So, let us look at this problem from a programatic perspective. If we imagine our data as an array of numbers, the problem boils down to finding the number of unique items in the array. There are basically 2 ways we could tackle this-
+So, let us look at this problem from a programatic perspective. If we imagine our data as an array of numbers, the problem boils down to finding the number of unique items in the array. We could tackle this in the following ways-
 
 #### 1. Brute Force
 The most straightforward approach is to compare each element with every other element.  
@@ -28,7 +28,7 @@ These approaches are fine, but taking into consideration the size of data we hav
 
 ### HyperLogLog - a probabilisic approach
 
-All the methods we mentioned above are by nature deterministic. They provide exact steps of execution and will give a final distinct answer. When discussing HyperLogLog, we move from a deterministic approach to a probablistic approach where we try to estimate the cardinality instead of actually finding it.
+All the methods we mentioned above are deterministic: they provide exact steps of execution and yield the true cardinality. With HyperLogLog, the approach shifts — the algorithm itself is deterministic, but it applies probabilistic techniques to estimate the cardinality rather than computing the exact value.
 
 The HyperLogLog tries to estimate the cardinality of the set by finding the rarest item in the group. This actually makes sense considering the assumption that a very rare item present in the group could very well mean there could be a lot of unique members in the group. Take for example a simple event like tossing 3 coins, what is the rarest event here ? either all heads or all tails. HyperLogLog extends this idea to estimate the cardinality of sets, but instead of finding the so called 'rarest' item, it hashes values and watches for patterns that are somewhat unlikely to appear in large datasets, specifically the maximum number of leading or trailing zeros in the hash value of the item. The longer/rarer the item the more unique elements you can infer.
 
