@@ -34,13 +34,13 @@ The HyperLogLog tries to estimate the cardinality of the set by finding the rare
 
 #### From Probabilistic Counting to HyperLogLog
 
-![Probabilistic counting](/_posts/assets/prob_counting.webp)
+![Probabilistic counting](/assets/prob_counting.webp)
 
 The idea of cardinality estimation started with **probabilistic counting**: hash the data and track the maximum run of leading zeros. While elegant, this single estimate was unstable.  
 
 To improve accuracy, researchers proposed splitting the stream into multiple **estimators** (buckets). Each bucket ran its own tiny estimator, and their results were later aggregated. Finally, **HyperLogLog** refined this approach by combining bucket estimates using a harmonic mean and correcting systematic bias.
 
-![Harmonic mean](/_posts/assets/harmonic_mean.webp)
+![Harmonic mean](/assets/harmonic_mean.webp)
 
 Lets discuss the steps that involved in the algorithm -
 1. **Hash each element**  
@@ -57,10 +57,10 @@ Lets discuss the steps that involved in the algorithm -
 4. **Update the register**  
    For that bucket, we keep track of the maximum number of leading zeros seen so far. Each bucket therefore records a tiny summary of the data it has observed.
 
-![Hashing illustration](/_posts/assets/hll_hashing.webp)
+![Hashing illustration](/assets/hll_hashing.webp)
 
 After we are done with the generating and populating the registers, we aggregate the observations of each of the buckets. HyperLogLog proposes that we use the **Harmonic Mean** for this, owing to its ability to handle outliers without making the results unstable. In order to further improve the accuracy of the estimates, the algorithm multiplies the mean with a carefully calculated constant.
 
-![Cardinality](/_posts/assets/final.png)
+![Cardinality](/assets/final.png)
 
 While the algorithm only provides an estimate of the cardinality of the data instead of an actual value, it achieves an error of ~2% which is actually a pretty good trade-off especially considering the size of data we are managing and the amount of compute and storage it might require to calculate exact values.
